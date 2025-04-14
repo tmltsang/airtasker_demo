@@ -1,10 +1,11 @@
-from flask import Response
-from app import app
+from flask import Response, Blueprint, current_app
 
-@app.route('/')
+routes = Blueprint('routes', __name__)
+
+@routes.route('/')
 def index():
-    return Response(app.config.get('APP_NAME'), status=200, mimetype='text/plain')
+    return Response(current_app.config.get('APP_NAME'), status=200, mimetype='text/plain')
 
-@app.route('/healthcheck')
+@routes.route('/healthcheck')
 def healthcheck():
     return Response('OK', status=200, mimetype='text/plain')
