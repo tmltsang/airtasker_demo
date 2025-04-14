@@ -25,6 +25,8 @@ This will create a `virtualenv` and install all the necessary requirements for y
 │   └── ...
 ├── test    //Tests written for pytest framework
 │   └── ...
+├── .github
+│   └── workflows //Some sample, proof of concept CI/CD
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
