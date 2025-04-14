@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Setup the python environment properly
 python -m virtualenv .venv
 source ./venv/bin/activate
 

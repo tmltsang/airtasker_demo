@@ -8,6 +8,8 @@ instance/
 
 .pytest_cache/
 .coverage
+junit/
+coverage.xml
 htmlcov/
 
 dist/

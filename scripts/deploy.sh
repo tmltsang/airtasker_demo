@@ -30,6 +30,9 @@ done
 
 if [ $isLocal = true ]; then
     minikube addons enable ingress
+    alias kubectl="minikube kubectl --"
+    ./scripts/build.sh
+    minikube image load airtasker
 else
     echo 'Not yet supported'
     exit 1
