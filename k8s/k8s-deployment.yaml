@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airtasker-deployment
+  labels:
+    app: airtasker
+spec:
+  selector:
+    matchLabels:
+      app: airtasker
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: airtasker
+    spec:
+      containers:
+        - name: airtasker
+          image: airtasker
+          imagePullPolicy: Never
+          env:
+            - name: APP_NAME
+              value: airtasker
+          ports:
+            - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
