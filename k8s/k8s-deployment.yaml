@@ -22,7 +22,7 @@ spec:
           imagePullPolicy: Never
           env:
             - name: APP_NAME
-              value: airtasker
+              value: $APP_NAME
           ports:
             - containerPort: 5000
           livenessProbe:
