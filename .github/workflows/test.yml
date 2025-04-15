@@ -1,11 +1,12 @@
 name: Test Python
+on:
+  push
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.10"]
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
