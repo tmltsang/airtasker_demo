@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: airtasker-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - airtasker.demo
+      secretName: mkcert
+  rules:
+  - host: airtasker.demo
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: airtasker
+            port:
+              number: 5000
